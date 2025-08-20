@@ -1,6 +1,5 @@
 const boardSize = 8;
 let boolSwitch = false;
-
 for (let index = 0; index < 8; index++) {
     let toPrint = '';
 
