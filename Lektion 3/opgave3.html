@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Brætspil: Kryds og bolle</h1>
+    <div class="container">
+            <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Tic_tac_toe.svg/500px-Tic_tac_toe.svg.png" alt=""></div>
+            <div><p>Brættet er ni felter (3×3), og hver spiller skiftes til placere en kryds/bolle. Den der først når tre på stribe vinder. Spillet afsluttes senest når alle felter er udfyldt eller man kan nøjes med tre brikker hver, således at man efter at have sat den tredje brik skiftes til at flytte en af sine egne brikker.</p></div>
+    
+            <div>
+                <table>
+                    <tr><td>x</td><td>0</td><td>0</td></tr>
+                    <tr><td>x</td><td>0</td><td></td></tr>
+                    <tr><td>x</td><td></td><td></td></tr>
+                </table>
+            </div>
+            <div><p>Mere tekst... bla. bla. bla.</p></div> 
+    </div>
+    <a href="https://da.wikipedia.org/wiki/Kryds_og_bolle">Kryds og bolle wiki</a>
+
+
+    <style>
+        .table, td{
+            border: 1px solid black;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 16px;
+            justify-items: start;
+        }
+
+        .container p {
+            word-wrap: break-word;
+        
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        table {
+            width: 100%;
+        }
+    </style>
+</body>
+</html>

@@ -15,7 +15,7 @@ console.log(compare("a", "A")); //1 fordi små bogstaver er højere leksi tal en
 
 
 function compareLen(s1, s2){
-    return Math.abs(s1.length - s2.length);
+    return compare(s1.length, s2.length);
 }
 
 console.log("CompareLength");

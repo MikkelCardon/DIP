@@ -1,0 +1,16 @@
+table{
+    border: 1px solid black;
+    gap: 15px;
+}
+
+th {
+    min-width: 75px
+}
+
+tr{
+    gap: 15px;
+}
+
+td{
+    border: 1px solid blue;
+}
