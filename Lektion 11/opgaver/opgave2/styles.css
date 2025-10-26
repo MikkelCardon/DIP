@@ -1,0 +1,31 @@
+li{
+    background-color: grey;
+    height: 25px;
+    border: 1px black solid;
+    border-radius: 5px;
+    margin: 5px;
+    width: fit-content;
+    padding: 5px;
+    width: 300px;
+}
+
+.userList{
+    margin-right: 50px;
+}
+
+
+.post{
+    background-color: gray;
+    height: auto;
+    border: 1px black solid;
+    border-radius: 5px;
+    margin: 5px;
+    min-height: 30px;
+    padding: 4px;
+    width: 800px;
+    word-wrap: break-word;
+}
+
+.content{
+    display: flex;
+}
