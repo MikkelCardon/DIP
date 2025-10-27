@@ -1,0 +1,21 @@
+td {
+	border: 1px solid blue;	
+}
+
+.list{
+	width: 800px;
+	border: 1px solid black;
+	border-radius: 10px;
+	min-height: 100px;
+	margin: 25px;
+	height: auto;
+}
+
+.list-item{
+	background-color: lightblue;
+	border: 1px solid black;
+	border-radius: 5px;
+	height: 25px;
+	margin: 5px;
+	padding: 5px;
+}
