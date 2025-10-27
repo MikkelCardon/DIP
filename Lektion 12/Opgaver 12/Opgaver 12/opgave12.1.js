@@ -4,9 +4,11 @@ const earthquakeUrl = // https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojs
 
 
 const list = document.querySelector(".list")
+const inputField = document.getElementById("minMagnitude")
 
 async function loadEarthquakes(){
     console.log("clicked");
+    list.innerHTML = ""     
 
     let res = await fetch(earthquakeUrl)
     let json = await res.json()
@@ -16,15 +18,14 @@ async function loadEarthquakes(){
     
     features.forEach(dataObject => {
         let properties = dataObject.properties
-        if(properties.mag < 5){
+        if(properties.mag < inputField.value){
             return
         }
         
-        earthquakeArray.push(
-            {
-            mag: properties.mag, 
-            place: properties.place, 
-            time: properties.time
+        earthquakeArray.push({
+            "mag": properties.mag, 
+            "place": properties.place, 
+            "time": new Date(properties.time)
         })
         
     });
@@ -43,8 +44,6 @@ async function loadEarthquakes(){
 
 
 }
-
-
 
 //mag
 //place
