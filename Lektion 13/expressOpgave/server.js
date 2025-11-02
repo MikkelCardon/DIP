@@ -19,39 +19,35 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 })
 
-app.get("/earthquake/:minMag", (req, res) => {
+app.get("/earthquake/:minMag", async (req, res) => {
     let minMag = parseInt(req.params.minMag)
 
     if(!Number.isInteger(minMag)){
-        res.status(400).send()
+        return res.status(400).send()
     }
 
-    processAPI(minMag).json() 
+    const earthquakes = await processAPI(minMag);
+    res.json(earthquakes);
 })
 
-function processAPI(minMag){
+async function processAPI(minMag){
+    let res = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson')
+    let json = await res.json()
+    
+    const earthquakeArray = json.features
+        .map(f => f.properties)
+        .filter(p => p.mag >= minMag)
+        .map(p => ({
+            mag: p.mag,
+            place: p.place,
+            time: new Date(p.time)
+        }))
+        .sort((a,b) => b.mag - a.mag)
 
-    let features = json.features
-    let earthquakeArray = []
-    
-    features.forEach(dataObject => {
-        let properties = dataObject.properties
-        if(properties.mag < minMag){
-            return
-        }
-        
-        earthquakeArray.push({
-            "mag": properties.mag, 
-            "place": properties.place, 
-            "time": new Date(properties.time)
-        })
-        
-    });
-    
-    earthquakeArray.sort((a,b) => b.mag - a.mag)
-    console.log(earthquakeArray);
+    //console.log(earthquakeArray);
+    return earthquakeArray
 }
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

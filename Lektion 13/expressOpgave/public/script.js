@@ -2,16 +2,16 @@
 const list = document.querySelector(".list")
 const inputField = document.getElementById("minMagnitude")
 
-export async function loadEarthquakes(){
+async function loadEarthquakes(){
+    let minMag = inputField.value
+
     console.log("fetching earthquakes with min magnitude = ", minMag);
     list.innerHTML = ""     
 
-    let res = await fetch(earthquakeUrl)
+    let res = await fetch(`/earthquake/${minMag}`)
     let json = await res.json()
     
-    
-    
-    earthquakeArray.forEach(earthquakeObject =>{  
+    json.forEach(earthquakeObject =>{  
         let newDiv = document.createElement("div")
         newDiv.classList.add("list-item")
 
@@ -21,3 +21,10 @@ export async function loadEarthquakes(){
 
     })
 }
+
+inputField.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {  
+        event.preventDefault();
+        loadEarthquakes();
+    }
+});
