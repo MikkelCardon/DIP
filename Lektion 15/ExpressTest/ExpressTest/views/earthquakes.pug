@@ -1,0 +1,9 @@
+html 
+    head 
+        title Jordskælv 
+    body 
+        ul  
+            each earthquake in earthquakes  
+                li 
+                    - var id = earthquake.id
+                    a(href='/earthquakes/' + id)= earthquake.properties.place

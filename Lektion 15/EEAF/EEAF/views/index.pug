@@ -1,0 +1,8 @@
+include includes/head
+body
+  h1 Vi siger hej til: #{name}
+  ul
+    each cat in cats 
+      li
+        img.pics(src='images/' + cat.image)
+  include includes/foot
