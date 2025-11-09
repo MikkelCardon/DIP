@@ -1,0 +1,31 @@
+HTML 
+    head 
+        meta(charset='UTF-8')
+        title= titel
+        link(rel='stylesheet', href='/style.css')
+    body 
+        h1 Welcome user 
+        h2 List of users:  
+         if users
+            h2 Users
+            div(class="users")
+                each user in users
+                    div(class="user") #{user.name} - #{user.age}
+                        if user.age < 18
+                            img(src="/images/baby.jpg")
+                        else if user.age == 69
+                            img(src="/images/nice.jpg") 
+                        else if user.age > 30 
+                            img(src="/images/old.webp")
+                        else
+                            img(src="/images/chad.jpg")
+        
+        form(action="/user", method="POST")
+            div
+                label(for="name") Name:
+                input(type="text", name="name", id="name", required)
+            div
+                label(for="age") Age:
+                input(type="number", name="age", id="age", required)
+            div
+                button(type="submit") Submit     
