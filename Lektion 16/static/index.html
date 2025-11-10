@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .login-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            display: block;
+            margin: 0.5rem 0 1rem;
+            padding: 0.5rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        #fejl {
+            color: red;
+            margin-top: 1rem;
+        }
+    </style>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <input type="text" id="navn" placeholder="Navn">
+    <input type="password" id="password" placeholder="Password">
+    <button id="login">Login</button>
+    <div id="fejl"></div>
+</div>
+    
+</body>
+</html>
